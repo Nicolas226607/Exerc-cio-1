@@ -1,7 +1,8 @@
+import { createClient } from "@supabase/supabase-js";
+
 const supabaseUrl = "https://fkzrocclknskifynbhrf.supabase.co";
 const supabaseKey = "b_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
-
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+const supabase = createClient(supabaseUrl,supabaseKey);
 
 async function inserir() {
   const nome = document.getElementById("nome").value = "";
