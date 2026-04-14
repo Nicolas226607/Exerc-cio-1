@@ -1,25 +1,17 @@
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+const supabaseUrl = "https://fkzrocclknskifynbhrf.supabase.co";
+const supabaseKey = "b_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
 
-const supabase = createClient(
-  "https://fkzrocclknskifynbhrf.supabase.co",
-  "sb_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL",
-);
+const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-const botao = document.getElementById("btn");
+async function inserir(){
 
-botao.addEventListener("click", async () => {
-  // pegar valores dos inputs
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
+  const nome = document.getElementById("nome").value = "";
+  const email = document.getElementById("email").value = "";
+  const numero = document.getElementById("numero").value = "";
 
-  // chamar função
-  await inserir(nome, email);
-});
-
-async function inserir(nome, email) {
   const { data, error } = await supabase
-    .from("usuarios")
-    .insert([{ nome: nome, email: email }]);
+    .from("cadastro")
+    .insert([{ nome: nome, email: email, numero: numero}]);
 
   if (error) {
     console.log("Erro:", error);
@@ -27,4 +19,11 @@ async function inserir(nome, email) {
     console.log("Sucesso:", data);
   }
 }
-// tomara que eu nao perca nada
+
+async function buscarDados() {
+  const { data, error } = await supabase
+    .from("cadastro")
+    .select("*");
+
+  console.log(data);
+}
