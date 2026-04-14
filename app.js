@@ -3,11 +3,17 @@ const supabaseKey = "b_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
 
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-async function inserir(){
-
+async function inserir() {
   const nome = document.getElementById("nome").value = "";
   const email = document.getElementById("email").value = "";
   const numero = document.getElementById("numero").value = "";
+
+  if(!nome?.trim()|| !email?.trim() || !numero?.trim()){
+    
+    alerte("Preencha todos os campos para proseguir");
+    return;
+    
+  }
 
   const { data, error } = await supabase
     .from("cadastro")
