@@ -14,6 +14,7 @@ async function inserir() {
     return;
     
   }
+  console.log("")
 
   const { data, error } = await supabase
     .from("cadastro")
@@ -24,6 +25,10 @@ async function inserir() {
   } else {
     console.log("Sucesso:", data);
   }
+
+    document.getElementById("nome").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("numero").value = "";
 }
 
 async function buscarDados() {
