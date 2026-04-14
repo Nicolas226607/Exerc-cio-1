@@ -27,4 +27,4 @@ async function inserir(nome, email) {
     console.log("Sucesso:", data);
   }
 }
-// teste
+// tomara que eu nao perca nada
