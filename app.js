@@ -1,17 +1,16 @@
-import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://fkzrocclknskifynbhrf.supabase.co";
 const supabaseKey = "b_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
 const supabase = createClient(supabaseUrl,supabaseKey);
 
 async function inserir() {
-  const nome = document.getElementById("nome").value = "";
-  const email = document.getElementById("email").value = "";
-  const numero = document.getElementById("numero").value = "";
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const numero = document.getElementById("numero").value;
 
   if(!nome?.trim()|| !email?.trim() || !numero?.trim()){
     
-    alerte("Preencha todos os campos para proseguir");
+    alert("Preencha todos os campos para proseguir");
     return;
     
   }
