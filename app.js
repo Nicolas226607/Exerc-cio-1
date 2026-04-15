@@ -20,7 +20,7 @@ window.inserir = async function () {
   const { data, error } = await db
     .from("cadastro")
     .insert([{ nome, email, numero }]);
-
+  
   if (error) {
     console.log("Erro:", error);
     alert("Erro ao salvar");
@@ -33,3 +33,7 @@ window.inserir = async function () {
   document.getElementById("email").value = "";
   document.getElementById("numero").value = "";
 };
+
+async function buscarDados(){
+  console.log("Buscando dados...");
+}
