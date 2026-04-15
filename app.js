@@ -1,9 +1,10 @@
 
 const supabaseUrl = "https://fkzrocclknskifynbhrf.supabase.co";
 const supabaseKey = "b_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
-const supabase = createClient(supabaseUrl,supabaseKey);
+const supabase = window.supabase.createClient(supabaseUrl,supabaseKey);
 
-async function inserir() {
+async function inserir(){
+  
   const nome = document.getElementById("nome").value;
   const email = document.getElementById("email").value;
   const numero = document.getElementById("numero").value;
@@ -14,7 +15,6 @@ async function inserir() {
     return;
     
   }
-  console.log("")
 
   const { data, error } = await supabase
     .from("cadastro")
