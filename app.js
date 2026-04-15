@@ -1,40 +1,35 @@
+console.log("app.js carregou");
 
 const supabaseUrl = "https://fkzrocclknskifynbhrf.supabase.co";
-const supabaseKey = "b_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
-const supabase = window.supabase.createClient(supabaseUrl,supabaseKey);
+const supabaseKey = "sb_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
 
-async function inserir(){
-  
+const db = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+window.inserir = async function () {
+  console.log("clicou");
+
   const nome = document.getElementById("nome").value;
   const email = document.getElementById("email").value;
   const numero = document.getElementById("numero").value;
 
-  if(!nome?.trim()|| !email?.trim() || !numero?.trim()){
-    
-    alert("Preencha todos os campos para proseguir");
+  if (!nome || !email || !numero) {
+    alert("Preencha todos os campos");
     return;
-    
   }
 
-  const { data, error } = await supabase
+  const { data, error } = await db
     .from("cadastro")
-    .insert([{ nome: nome, email: email, numero: numero}]);
+    .insert([{ nome, email, numero }]);
 
   if (error) {
     console.log("Erro:", error);
+    alert("Erro ao salvar");
   } else {
     console.log("Sucesso:", data);
+    alert("Salvo com sucesso!");
   }
 
-    document.getElementById("nome").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("numero").value = "";
-}
-
-async function buscarDados() {
-  const { data, error } = await supabase
-    .from("cadastro")
-    .select("*");
-
-  console.log(data);
-}
+  document.getElementById("nome").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("numero").value = "";
+};
