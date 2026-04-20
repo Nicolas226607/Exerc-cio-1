@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.body {
+body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@
 
 .container {
   width: 100%;
-  max-width: 420px;
+  max-width: 900px;
   background: #f5f7fa;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
@@ -49,6 +49,7 @@
 
 .button {
   width: 100%;
+  max-width: 250px;
   padding: 13px;
   border: none;
   border-radius: 10px;
@@ -66,6 +67,7 @@
 
 .link-botao {
   width: 100%;
+  max-width: 250px;
   text-align: center;
   text-decoration: none;
   background: #3f6b7d;
@@ -80,49 +82,44 @@
 }
 
 .lista-container {
-  max-width: 700px;
+  width: 100%;
+  margin-top: 20px;
 }
 
-.list {
+.tabela {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.card-usuario {
-  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
   background: white;
-  border-left: 5px solid #2c5364;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.card-usuario p {
-  margin: 4px 0;
-  color: #1f2933;
-}
-
-.acoes {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-}
-
-.btn-excluir,
-.btn-editar {
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
+.tabela th {
+  background: #2c5364;
   color: white;
-  cursor: pointer;
+  padding: 12px;
+  text-align: left;
+}
+
+.tabela td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela tr:hover {
+  background: #f1f1f1;
 }
 
 .btn-excluir {
   background: #c62828;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.btn-editar {
-  background: #1565c0;
+.btn-excluir:hover {
+  opacity: 0.9;
 }
