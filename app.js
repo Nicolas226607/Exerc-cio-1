@@ -1,13 +1,6 @@
-console.log("app.js carregou");
-
-const supabaseUrl = "https://fkzrocclknskifynbhrf.supabase.co";
-const supabaseKey = "sb_publishable_s4jPdDHCpU5jhRr5rv7d0Q_I4upMTgL";
-
-const db = window.supabase.createClient(supabaseUrl, supabaseKey);
+import { db } from "./banco";
 
 window.inserir = async function () {
-  console.log("clicou");
-
   const nome = document.getElementById("nome").value;
   const email = document.getElementById("email").value;
   const numero = document.getElementById("numero").value;
@@ -20,7 +13,7 @@ window.inserir = async function () {
   const { data, error } = await db
     .from("cadastro")
     .insert([{ nome, email, numero }]);
-  
+
   if (error) {
     console.log("Erro:", error);
     alert("Erro ao salvar");
@@ -33,7 +26,3 @@ window.inserir = async function () {
   document.getElementById("email").value = "";
   document.getElementById("numero").value = "";
 };
-
-async function buscarDados(){
-  console.log("Buscando dados...");
-}

@@ -59,3 +59,33 @@
 .h1 {
   transform: scale(1.2);
 }
+
+.link {
+  color: purple;
+  text-decoration: none;
+}
+
+.containerLinkRigth {
+  height: 35px;
+  width: 90px;
+  margin-top: 20px;
+  margin-left: auto;
+  justify-content: right;
+  align-items: center;
+}
+
+.containerLinkLeft {
+  height: 35px;
+  width: 90px;
+  margin-top: 20px;
+  margin-right: auto;
+  justify-content: right;
+  align-items: center;
+}
+
+.lista {
+}
+
+.link:hover {
+  text-decoration: underline;
+}
